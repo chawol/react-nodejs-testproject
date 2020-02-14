@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import TopNav from "./components/common/TopNav";
 import AppRoute from "./apps/AppRoute";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import "./styles.scss";
 
 ReactDOM.render(

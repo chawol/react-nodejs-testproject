@@ -16,7 +16,7 @@ class CPJ extends React.Component {
         return (
             <div class="body">
                 <img class="banner" src={banner} alt=""></img>
-                <div><App_Link name="App1" /></div>
+                <div><App_Link name="App123456" /></div>
                 <Test />
             </div>
         )
