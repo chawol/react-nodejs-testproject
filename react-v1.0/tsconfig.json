@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true, // 設為true時可不用 import * as React from 'react'
+    "module": "commonjs",
+    "types": ["react"],
+    "removeComments": true,
+    "jsx": "react",
+
+    "baseUrl": "./"
+  },
+  "include": ["src"]
+}
