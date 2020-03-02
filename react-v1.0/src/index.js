@@ -15,3 +15,12 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+
+const removeComponent = () =>{
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'))
+}
+
+
+// setInterval(removeComponent,5000)
+//測試Unmount 用
