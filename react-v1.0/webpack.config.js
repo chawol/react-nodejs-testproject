@@ -7,6 +7,9 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 module.exports = {
   entry: ["react-hot-loader/patch", "./src/index.js"],
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   output: {
     // NEW
     path: path.join(__dirname, "dist"),
@@ -15,6 +18,14 @@ module.exports = {
   plugins: [htmlPlugin, new webpack.HotModuleReplacementPlugin()],
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "awesome-typescript-loader",
+          options: { presets: ["@babel/preset-react", "@babel/preset-env"] }
+        }
+      },
       {
         test: /\.(jsx)$/,
         exclude: /node_modules/,
