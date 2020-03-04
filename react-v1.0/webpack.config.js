@@ -6,6 +6,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
   filename: "./index.html"
 });
 module.exports = {
+  mode:'development',
   entry: ["react-hot-loader/patch", "./src/index.js"],
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
@@ -13,7 +14,7 @@ module.exports = {
   output: {
     // NEW
     path: path.join(__dirname, "dist"),
-    filename: "[name].js"
+    filename: "[name].[hash].js"
   }, // NEW Ends
   plugins: [htmlPlugin, new webpack.HotModuleReplacementPlugin()],
   module: {
