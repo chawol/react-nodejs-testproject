@@ -1,5 +1,5 @@
 import React from "react";
-import Chawol from "./Chawol";
+
 
 class CheckButton extends React.Component {
     writeConsole() {
@@ -281,6 +281,7 @@ export class EasyFormFitUnStateCompment extends React.Component {
         console.log(`選擇檔案為：${this.filebox.current.files[0].name}`)
         event.preventDefault()
     }
+
     render() {
         return (
             <form onSubmit={this.onSubmit}>
@@ -289,13 +290,85 @@ export class EasyFormFitUnStateCompment extends React.Component {
                     <input type="file"
                         /*這裡將用React.createRef的filebox指定給該組件的ref屬性
                         讓class內的function可以依照ref取得組件*/
-                           ref={this.filebox} />
+                           ref={this.filebox}/>
                 </div>
-                <input type="submit" value="送出表單" />
+                <input type="submit" value="送出表單"/>
             </form>
         )
     }
 }
 
 
-export {CheckButton, AddButton, InputGender, HelloTitle, NowTime, EasyForm, EasyFormCheckBox}  ;
+class Message extends React.Component {
+    render() {
+        let divStyle = {marginBottom: 20};
+        let messageStyle = {marginLeft: 20};
+        return (
+            <div style={divStyle}>
+                <div>{this.props.name}</div>
+                <div style={messageStyle}>{this.props.message}</div>
+            </div>
+
+        )
+    }
+}
+
+class MessageBlock extends React.Component {
+    render() {
+        let message = this.props.messageData.map((item) => {
+            if (item.name.indexOf(this.props.searchName) != -1)
+                return <Message key={item.id} name={item.name} message={item.message}/>
+        });
+        return (
+            <div>{message}</div>
+        );
+    }
+}
+
+class SearchBlock extends React.Component {
+    render() {
+        return (
+            <div>
+                <span>搜尋留言人:</span>
+                <input type="text" value={this.props.name}
+                       onChange={this.props.changeState}
+                />
+            </div>
+        )
+    }
+}
+
+export class MessageForm extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = ({name: ''})
+        this.changeState = this.changeState.bind(this)
+    }
+
+    changeState(event) {
+        this.setState({name: event.target.value})
+    }
+
+    render() {
+        return (
+            <div>
+                {/*在這邊把資料傳入message裡*/}
+                <SearchBlock searchName={this.state.name}
+                             changeState={this.changeState}
+                />
+                <hr/>
+                <MessageBlock messageData={this.props.messageData} searchName={this.state.name}> </MessageBlock>
+            </div>
+        )
+    }
+}
+
+export {
+    CheckButton,
+    AddButton,
+    InputGender,
+    HelloTitle,
+    NowTime,
+    EasyForm,
+    EasyFormCheckBox
+};
