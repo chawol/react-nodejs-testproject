@@ -1,7 +1,7 @@
 import React from "react";
 import Moon from '../../assets/pic/moon.png'
 import {createStore} from "redux";
-import {MessageFormRe} from "./reduxPritice.jsx"
+import {MessageForem} from "./reduxPritice.jsx"
 
 let objLists =
     [{id: 'a', list: '打文章'}, {id: 'b', list: '寫程式'}, {id: 'c', list: '耍廢'}]
@@ -36,7 +36,7 @@ class Chawol extends React.Component {
                 <h1>Hello , {this.props.name} !</h1>
                 <img src={Moon} alt="Smiley face" height="42" width="42"/>
                 {/*<EasyFormTemp/>*/}
-                <MessageFormRe/>
+                <MessageForem/>
             </div>
         )
     }

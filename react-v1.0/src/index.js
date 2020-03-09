@@ -9,7 +9,7 @@ import "./styles.scss";
 ReactDOM.render(
     <Router>
         <TopNav/>
-        <div className="container">
+        <div className="container-fluid">
             <AppRoute/>
         </div>
     </Router>,

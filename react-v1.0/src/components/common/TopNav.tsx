@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+// /fixed-top 從nav 中移除 避免Container 會從畫面最上方開始算/
 const TopNav = () => {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav className="navbar navbar-expand-md navbar-dark  bg-dark">
       <Link className="navbar-brand" to="/">
         Navbar
       </Link>
